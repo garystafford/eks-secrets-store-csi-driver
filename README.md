@@ -4,7 +4,7 @@
 
 -<https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_csi_driver.html>
 
-## Install
+## Install `secrets-store-csi-driver`
 
 ```shell
 helm repo add secrets-store-csi-driver https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/master/charts
@@ -43,6 +43,8 @@ eksctl get iamserviceaccount --cluster $CLUSTER_NAME --namespace ${NAMESPACE}
 eksctl get iamserviceaccount nginx-deployment-sa --cluster $CLUSTER_NAME --namespace ${NAMESPACE}
 ```
 
+## Deploy Test Pod
+
 ```shell
 kubectl apply -f secret-provider-class.yaml -n ${NAMESPACE}
 kubectl apply -f pod.yaml -n ${NAMESPACE}
@@ -50,8 +52,10 @@ kubectl apply -f pod.yaml -n ${NAMESPACE}
 kubectl describe pod nginx-deployment -n ${NAMESPACE}
 ```
 
-## Test
+## Test Access to Secret from Pod
 
 ```shell
 kubectl exec -it nginx-deployment -n ${NAMESPACE} -- cat /mnt/secrets-store/MySecret; echo
 ```
+
+![Test Result](./test_result.png)
