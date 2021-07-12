@@ -28,7 +28,7 @@ aws --region ${EKS_REGION} secretsmanager  create-secret \
 ```shell
 aws iam create-policy \
     --policy-name SecretsManagerK8SPolicy \
-    --policy-document file://resources/aws/SecretsManagerK8SPolicy.json
+    --policy-document file://SecretsManagerK8SPolicy.json
 
 export AWS_ACCOUNT=$(aws sts get-caller-identity --output text --query 'Account')
 export EKS_REGION="us-east-1"
