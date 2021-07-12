@@ -4,7 +4,7 @@
 
 <https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_csi_driver.html>
 
-## Install `secrets-store-csi-driver`
+## Install Secrets Store CSI Driver
 
 ```shell
 helm repo add secrets-store-csi-driver https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/master/charts
@@ -15,14 +15,14 @@ kubectl apply -f https://raw.githubusercontent.com/aws/secrets-store-csi-driver-
 kubectl get pods -n kube-system
 ```
 
-### Create Sample Secret
+## Create Sample Secret
 
 ```shell
 aws --region ${EKS_REGION} secretsmanager  create-secret \
     --name MySecret --secret-string '{"username":"foo", "password":"bar"}'
 ```
 
-### Setup IAM role for IRSA (`iamserviceaccount`)
+## Setup IAM role for IRSA
 
 ```shell
 aws iam create-policy \
