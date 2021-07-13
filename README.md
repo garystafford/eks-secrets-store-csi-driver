@@ -39,6 +39,7 @@ aws iam create-policy \
     --policy-document file://SecretsManagerK8SPolicy.json
 
 export AWS_ACCOUNT=$(aws sts get-caller-identity --output text --query 'Account')
+# CHANGE ME!
 export CLUSTER_NAME="<your_cluster_name>"
 export NAMESPACE="<your_namespace>"
 
