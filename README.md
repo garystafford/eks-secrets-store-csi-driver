@@ -5,6 +5,13 @@
 * <https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_csi_driver.html>
 * <https://github.com/aws/secrets-store-csi-driver-provider-aws>
 
+## Prerequisites
+
+- EKS Cluster
+- kubectl installed
+- eksctl installed
+- AWS CLI v2 installed
+
 ## Install Secrets Store CSI Driver
 
 ```shell
@@ -19,6 +26,8 @@ kubectl get pods -n kube-system
 ## Create Sample Secret
 
 ```shell
+export EKS_REGION="us-east-1"
+
 aws --region ${EKS_REGION} secretsmanager  create-secret \
     --name MySecret --secret-string '{"username":"foo", "password":"bar"}'
 ```
@@ -31,7 +40,6 @@ aws iam create-policy \
     --policy-document file://SecretsManagerK8SPolicy.json
 
 export AWS_ACCOUNT=$(aws sts get-caller-identity --output text --query 'Account')
-export EKS_REGION="us-east-1"
 export CLUSTER_NAME="<your_cluster_name>"
 export NAMESPACE="dev"
 
@@ -44,8 +52,8 @@ eksctl create iamserviceaccount \
     --approve \
     --override-existing-serviceaccounts
 
-eksctl get iamserviceaccount --cluster $CLUSTER_NAME --namespace ${NAMESPACE}
-eksctl get iamserviceaccount nginx-deployment-sa --cluster $CLUSTER_NAME --namespace ${NAMESPACE}
+eksctl get iamserviceaccount --cluster ${CLUSTER_NAME} --namespace ${NAMESPACE}
+eksctl get iamserviceaccount nginx-deployment-sa --cluster ${CLUSTER_NAME} --namespace ${NAMESPACE}
 ```
 
 ## Deploy Test Pod
