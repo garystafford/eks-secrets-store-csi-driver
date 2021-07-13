@@ -28,8 +28,7 @@ kubectl get pods -n kube-system
 ```shell
 export EKS_REGION="us-east-1"
 
-aws --region ${EKS_REGION} secretsmanager  create-secret \
-    --name MySecret --secret-string '{"username":"foo", "password":"bar"}'
+aws --region ${EKS_REGION} secretsmanager create-secret --name MySecret --secret-string '{"username":"foo", "password":"bar"}'
 ```
 
 ## Setup IAM role for IRSA
