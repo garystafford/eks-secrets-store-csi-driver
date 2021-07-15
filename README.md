@@ -75,4 +75,4 @@ kubectl exec -it nginx-deployment -n ${NAMESPACE} -- cat /mnt/secrets-store/MySe
 
 ---
 
-<small><i>The contents of this repository represents my own viewpoints and not of my employer, Amazon Web Services (AWS). All product names, logos, and brands are the property of their respective owners.</i></small>
+<i>The contents of this repository represent my own viewpoints and not of my employer, Amazon Web Services (AWS). All third-party libraries, modules, and SDKs are the property of their respective owners.</i>
