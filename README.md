@@ -72,3 +72,7 @@ kubectl exec -it nginx-deployment -n ${NAMESPACE} -- cat /mnt/secrets-store/MySe
 ```
 
 ![Test Result](./test_result.png)
+
+---
+
+<small><i>The contents of this repository represents my own viewpoints and not of my employer, Amazon Web Services (AWS). All product names, logos, and brands are the property of their respective owners.</i></small>
