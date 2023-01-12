@@ -64,8 +64,8 @@ aws iam create-policy \
 export AWS_ACCOUNT=$(aws sts get-caller-identity --output text --query 'Account')
 
 # CHANGE ME!
-export CLUSTER_NAME="<your_cluster_name>"
-export NAMESPACE="<your_namespace>"
+export CLUSTER_NAME="<your_eks_cluster_name>"
+export NAMESPACE="<your_k8s_namespace>"
 
 eksctl create iamserviceaccount \
     --name nginx-deployment-sa \
