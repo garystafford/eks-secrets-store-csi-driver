@@ -52,6 +52,8 @@ aws --region ${EKS_REGION} secretsmanager create-secret --name MySecret --secret
 
 ## Setup IAM role for IRSA
 
+First, update the `SecretsManagerK8SPolicy.json` file to include your AWS Account ID in two places.
+
 ```shell
 aws iam create-policy \
     --policy-name SecretsManagerK8SPolicy \
