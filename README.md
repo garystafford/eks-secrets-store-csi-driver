@@ -23,11 +23,22 @@
 helm repo remove secrets-store-csi-driver # location changed if you used in past...
 helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
 helm install csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver --namespace kube-system
-
+kubectl --namespace=kube-system get pods -l "app=secrets-store-csi-driver"
 
 kubectl apply -f https://raw.githubusercontent.com/aws/secrets-store-csi-driver-provider-aws/main/deployment/aws-provider-installer.yaml
 
 kubectl get pods -n kube-system
+```
+
+## Sample Output
+
+```text
+csi-secrets-store-provider-aws-85nnj               1/1     Running   0          12s
+csi-secrets-store-provider-aws-ckr5g               1/1     Running   0          12s
+csi-secrets-store-provider-aws-knszf               1/1     Running   0          12s
+csi-secrets-store-secrets-store-csi-driver-4wl9v   3/3     Running   0          82s
+csi-secrets-store-secrets-store-csi-driver-bksmg   3/3     Running   0          82s
+csi-secrets-store-secrets-store-csi-driver-cnjzx   3/3     Running   0          82s
 ```
 
 ## Create Sample Secret
