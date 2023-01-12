@@ -31,7 +31,7 @@ kubectl apply -f https://raw.githubusercontent.com/aws/secrets-store-csi-driver-
 kubectl get pods -n kube-system
 ```
 
-## Sample Output
+### Sample Output
 
 Three-node EKS cluster example.
 
@@ -78,6 +78,13 @@ eksctl create iamserviceaccount \
 
 eksctl get iamserviceaccount --cluster ${CLUSTER_NAME} --namespace ${NAMESPACE}
 eksctl get iamserviceaccount nginx-deployment-sa --cluster ${CLUSTER_NAME} --namespace ${NAMESPACE}
+```
+
+### Sample Output
+
+```text
+NAMESPACE   NAME                  ROLE ARN
+datahub     nginx-deployment-sa   arn:aws:iam::111222333444:role/eksctl-eks-demo-cluster-addon-iamserviceacco-Role1-OTSQ84ZUR9KK
 ```
 
 ## Deploy Test Pod
