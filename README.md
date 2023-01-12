@@ -33,6 +33,8 @@ kubectl get pods -n kube-system
 
 ## Sample Output
 
+Three-node EKS cluster example.
+
 ```text
 csi-secrets-store-provider-aws-85nnj               1/1     Running   0          12s
 csi-secrets-store-provider-aws-ckr5g               1/1     Running   0          12s
